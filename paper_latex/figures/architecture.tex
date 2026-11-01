@@ -1,0 +1,28 @@
+\begin{tikzpicture}[
+  >=Latex,
+  block/.style={draw=black!35, rounded corners=2pt, align=center, minimum height=1.0cm, text width=2.45cm, inner sep=4pt, font=\small},
+  learned/.style={block, fill=violet!8, draw=violet!50},
+  analytic/.style={block, fill=teal!7, draw=teal!55},
+  link/.style={->,line width=.65pt,draw=black!65},
+  note/.style={font=\scriptsize,text=black!65,align=center}
+]
+\node[block] (obs) at (0,0) {Sensor evidence\\\scriptsize features, quality, ID};
+\node[learned] (encoder) at (3.15,0) {Observation encoder\\\scriptsize learned score $d_\theta(e)$};
+\node[analytic] (belief) at (6.3,0) {Spatial belief\\\scriptsize additive\\occupancy factors};
+\node[block] (cache) at (9.45,0) {Candidate futures\\\scriptsize factor-indexed cache};
+\node[block] (audit) at (0,-1.9) {External audit\\\scriptsize revoked evidence IDs};
+\node[analytic] (ledger) at (3.15,-1.9) {Evidence ledger\\\scriptsize subtract retained scores};
+\node[block] (planner) at (6.3,-1.9) {Global replanning\\\scriptsize actual current position};
+\node[block] (execute) at (9.45,-1.9) {Physical execution\\\scriptsize retain realized actions};
+\draw[link] (obs)--(encoder);
+\draw[link] (encoder)--(belief);
+\draw[link] (belief)--(cache);
+\draw[link] (audit)--(ledger);
+\draw[link] (ledger)--node[note,right]{repair}(belief);
+\draw[link] (belief)--(planner);
+\draw[link] (cache.south)--++(0,-.32)-|node[note,near start,below]{revised scores}(planner.north east);
+\draw[link] (planner)--(execute);
+\draw[link,dashed] (encoder)--node[note,left]{store}(ledger);
+\node[note,text=violet!80!black] at (3.15,.88) {Learned component};
+\node[note,text=teal!70!black] at (6.3,.88) {Exact under stated assumptions};
+\end{tikzpicture}

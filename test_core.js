@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const core=require('./web/core.js');const context={window:{}};vm.runInNewContext(fs.readFileSync(__dirname+'/web/demo-data.js','utf8'),context);
+const s=context.window.DEMO_DATA.scene,removed=new Set();let logits=core.infer(s);
+const start=4*s.width+8,old=core.plan(logits,s.width,s.height,start,s.goal);
+assert(old.includes(s.bad_cell),'bad evidence should induce shortcut');
+const corrected=core.retract(logits,s.events,s.bad_ids,removed).logits;
+const ref=core.infer(s,removed);assert(Math.max(...corrected.map((v,i)=>Math.abs(v-ref[i])))<1e-12);
+const path=core.plan(corrected,s.width,s.height,start,s.goal);assert(path.length>0);assert(!path.includes(s.bad_cell));assert(!path.some(c=>s.truth[c]));
+assert.equal(path[0],start,'retain current physical position');
+assert.deepEqual(core.retract(corrected,s.events,s.bad_ids,removed).logits,corrected);
+console.log('Browser core: replay equivalence, changed action, collision-free route, retained position and idempotence passed.');

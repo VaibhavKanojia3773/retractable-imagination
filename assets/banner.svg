@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360">
+<rect width="1280" height="360" rx="16" fill="#10161f"/>
+<path d="M0 315H1280" stroke="#293344"/>
+<text x="55" y="64" fill="#80e5cc" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">EMBODIED SPATIAL REASONING · NEURIPS 2026 WORKSHOP</text>
+<text x="53" y="139" fill="#edf0f5" font-family="Arial,sans-serif" font-size="48" font-weight="600">Retractable</text>
+<text x="53" y="196" fill="#b4a2ff" font-family="Georgia,serif" font-size="53" font-style="italic">Imagination</text>
+<text x="55" y="244" fill="#b4bfce" font-family="Arial,sans-serif" font-size="17">Revise the belief. Preserve the episode.</text>
+<text x="55" y="340" fill="#8e9bac" font-family="Arial,sans-serif" font-size="11" letter-spacing="1">EVIDENCE PROVENANCE / PREDICTIVE CONSISTENCY / INTERACTIVE REPLANNING</text>
+<g transform="translate(665 64)">
+<rect width="550" height="212" rx="10" fill="#171f2c" stroke="#334153"/>
+<path d="M28 30H522V182H28Z M274 30V64 M274 88V134 M274 156V182" fill="none" stroke="#55657c" stroke-width="9"/>
+<path d="M65 76H147" fill="none" stroke="#edf0f5" stroke-width="4"/>
+<path d="M147 76H475" fill="none" stroke="#b4a2ff" stroke-width="3" stroke-dasharray="8 7"/>
+<path d="M147 76V146H434V76H475" fill="none" stroke="#80e5cc" stroke-width="4"/>
+<circle cx="274" cy="76" r="12" fill="#171f2c" stroke="#f2c981" stroke-width="2"/>
+<text x="289" y="60" fill="#f2c981" font-family="Arial,sans-serif" font-size="11">REVOKED EVIDENCE</text>
+<circle cx="147" cy="76" r="7" fill="#edf0f5"/>
+<circle cx="475" cy="76" r="7" fill="#80e5cc"/>
+<text x="31" y="204" fill="#8e9bac" font-family="Arial,sans-serif" font-size="10">ACTUAL ACTIONS REMAIN FIXED</text>
+</g></svg>

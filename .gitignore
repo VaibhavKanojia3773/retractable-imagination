@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.DS_Store
+dist/
+paper_latex/*.aux
+paper_latex/*.bbl
+paper_latex/*.blg
+paper_latex/*.log
+paper_latex/*.out
+paper_latex/*.synctex.gz
+paper_latex/preview-*.png
+paper_latex/final_*.png
+.env
+*.pem
+*.key
+external_eval/
